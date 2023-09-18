@@ -8,4 +8,12 @@ name: CI
       # run shellcheck
       - name: ShellCheck
         uses: ludeeus/action-shellcheck@1.1.0
-        
+      - name: Post comment
+        uses: mshick/add-pr-comment@v1
+        if: $
+        with:
+            message: |
+            $
+            repo-token: $
+            repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+            allow-repeats: false # This is the default
